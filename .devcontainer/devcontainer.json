@@ -1,0 +1,36 @@
+{
+	"name": "Capim Dash Backend",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/app",
+	"customizations": {
+			"vscode": {
+			"settings": {
+					"terminal.integrated.defaultProfile.linux": "bash",
+					"rubyTestExplorer.testFramework": "rspec",
+					"rubyTestExplorer.rspecCommand": "bundle exec rspec --color",
+					"rubyTestExplorer.rspecDirectory": "./spec",
+					"ruby-spec-runner.rspecFormat": "Documentation"
+			},
+			"extensions": [
+					"Shopify.ruby-lsp",
+					"rebornix.Ruby",
+					"castwide.solargraph",
+					"Fooo.ruby-spec-runner",
+					"eamodio.gitlens"
+			]
+			}
+	},
+	"postCreateCommand": "apt-get update && apt-get install -y openssh-client pinentry-curses && bundle install && cp -r /home/vscode/host-ssh/* /root/.ssh/ && chmod 700 /root/.ssh && chmod 600 /root/.ssh/id_* && chmod 644 /root/.ssh/*.pub && cp -r /home/vscode/host-gnupg /root/.gnupg && chmod 700 /root/.gnupg && chmod 600 /root/.gnupg/* && chown -R root:root /root/.gnupg && cp /home/vscode/host-gitconfig /root/.gitconfig && git config --global commit.gpgsign true && git config --global gpg.program gpg && echo 'use-agent' > /root/.gnupg/gpg.conf && echo 'pinentry-program /usr/bin/pinentry-curses' > /root/.gnupg/gpg-agent.conf && echo 'allow-loopback-pinentry' >> /root/.gnupg/gpg-agent.conf && echo 'default-cache-ttl 315360000' >> /root/.gnupg/gpg-agent.conf && echo 'max-cache-ttl 315360000' >> /root/.gnupg/gpg-agent.conf && echo 'export GPG_TTY=$(tty)' >> /root/.bashrc && gpg-connect-agent reloadagent /bye && chmod +x /app/.devcontainer/setup-gpg.sh",
+	"forwardPorts": [3000],
+	"mounts": [
+			"source=${localEnv:HOME}/.netrc,target=/root/.netrc,type=bind",
+			"source=${env:HOME}/.ssh,target=/home/vscode/host-ssh,type=bind,consistency=cached,readonly",
+			"source=${env:HOME}/.gnupg,target=/home/vscode/host-gnupg,type=bind,consistency=cached,readonly",
+			"source=${env:HOME}/.gitconfig,target=/home/vscode/host-gitconfig,type=bind,consistency=cached,readonly"
+	],
+	"containerEnv": {
+		"GPG_TTY": "/dev/console",
+		"DISPLAY": ":0"
+	}
+}
