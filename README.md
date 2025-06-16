@@ -24,15 +24,15 @@ Este repositório simula um exemplo prático de como essas ferramentas foram con
 
 Arquivos e pastas principais:
 
-devcontainer.json
+`devcontainer.json`
 
 Arquivo de configuração do Dev Container. Define o ambiente Docker utilizado para garantir que todos os desenvolvedores tenham as mesmas dependências, versões de Ruby, gems e configurações de sistema. Inclui também extensões recomendadas para o VSCode, como Ruby LSP, Ruby Spec Runner e GitLens.
 
-setup-gpg.sh
+`setup-gpg.sh`
 
 Script auxiliar utilizado para configuração de GPG no container, garantindo commits assinados e segurança nas operações de Git dentro do ambiente isolado.
 
-Gemfile (exemplo)
+`Gemfile` (exemplo)
 
 Arquivos que demonstram as dependências Ruby necessárias para rodar um projeto típico Rails, incluindo gems para desenvolvimento, teste e suporte à DX.
 
