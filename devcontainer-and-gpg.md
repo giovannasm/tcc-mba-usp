@@ -116,7 +116,7 @@ Executa uma série de comandos no container após ele ser criado:
 - Configura o GPG para funcionar dentro do container:
   - Cache de senha muito longo.
 
-> ⚠️ **Importante:** Esse processo **não ativa automaticamente a assinatura de commits.** É necessário que você já tenha sua chave GPG criada e configurada no Git com `commit.gpgsign true`. Após isso, é necessário rodar o script `setup-gpg.sh` no terminal dentro do container.
+> ⚠️ **Importante:** Esse processo **não ativa automaticamente a assinatura de commits.** É necessário que você já tenha sua chave GPG criada e configurada no Git com `commit.gpgsign true`. Após isso, é necessário rodar o script `setup-gpg.sh` no terminal dentro do container (mais instruções detalhadas abaixo).
 
 ---
 
@@ -160,17 +160,6 @@ Executa uma série de comandos no container após ele ser criado:
 
 - **`GPG_TTY`** → Necessário para que o GPG funcione corretamente no terminal.
 - **`DISPLAY`** → Usado para exportação de interface gráfica, embora neste contexto não seja essencial.
-
----
-
-## ✅ **Resumo**
-
-- 🔧 Cria um ambiente padronizado para desenvolvimento Ruby on Rails.
-- 🔐 Prepara o ambiente para uso de SSH, GPG e Git dentro do container.
-- 🚀 Inclui suporte completo para:
-  - Testes integrados no editor.
-  - Navegação no código.
-  - Suporte a commits assinados (desde que você já tenha sua chave GPG e configuração Git).
 
 ---
 
@@ -246,15 +235,6 @@ gpg-connect-agent reloadagent /bye
 ```
 
 - Recarrega as configurações do `gpg-agent` para aplicar imediatamente as mudanças feitas.
-
----
-
-## ✅ **Resumo**
-
-- 🔧 Prepara corretamente o ambiente GPG no container.
-- 🔒 Garante segurança nas permissões.
-- 🚀 Evita ter que digitar a senha GPG repetidamente.
-- 🔗 Permite fazer commits assinados, assinar tags e realizar outras operações que dependem do GPG de forma transparente dentro do container.
 
 ---
 
