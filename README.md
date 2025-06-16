@@ -10,7 +10,7 @@ Para isso, foram implementadas três soluções principais em projetos reais den
 
 - **Ruby LSP (Language Server Protocol)**: fornece funcionalidades como autocomplete, navegação no código, linting, hover com documentação e renomeação de símbolos diretamente no editor.
 - **Ruby Spec Runner**: permite rodar testes Rspec de forma integrada ao editor (VSCode ou Cursor), tornando o ciclo de feedback mais rápido e acessível.
-- **Dev Containers (via Docker + VSCode/Cursor)**: padroniza o ambiente de desenvolvimento, garantindo que todos os desenvolvedores trabalhem com a mesma versão de Ruby, gems e dependências, além de acelerar o onboarding.
+- **Dev Containers (via Docker + VSCode)**: padroniza o ambiente de desenvolvimento, garantindo que todos os desenvolvedores trabalhem com a mesma versão de Ruby, gems e dependências, além de acelerar o onboarding.
 
 Após a adoção dessas ferramentas, foi aplicado um questionário com o time de desenvolvimento para mensurar os impactos percebidos em termos de produtividade, fluidez no desenvolvimento, facilidade no onboarding e satisfação com o ambiente de trabalho.
 
