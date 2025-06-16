@@ -2,7 +2,7 @@
 
 ---
 
-## 🐳 **Explicação completa do arquivo `devcontainer.json`**
+## 🐳 **`devcontainer.json`**
 
 O arquivo `devcontainer.json` é responsável por definir todo o ambiente de desenvolvimento containerizado dentro do VSCode (ou qualquer editor compatível com Dev Containers).
 
@@ -91,7 +91,7 @@ O arquivo `devcontainer.json` é responsável por definir todo o ambiente de des
 
 - **Shopify.ruby-lsp** → LSP oficial do Ruby (autocomplete, navegação, linting, etc.).
 - **rebornix.Ruby** → Suporte básico ao Ruby no VSCode.
-- **castwide.solargraph** → Outro servidor LSP para Ruby (alternativo/auxiliar).
+- **castwide.solargraph** → Outro servidor LSP para Ruby (É uma dependência do ruby-lsp).
 - **Fooo.ruby-spec-runner** → Integração de testes RSpec no VSCode.
 - **eamodio.gitlens** → Melhora a visualização do Git (blame, histórico, etc.).
 
@@ -163,7 +163,7 @@ Executa uma série de comandos no container após ele ser criado:
 
 ---
 
-## ✅ **Resumo funcional do `devcontainer.json`**
+## ✅ **Resumo**
 
 - 🔧 Cria um ambiente padronizado para desenvolvimento Ruby on Rails.
 - 🔐 Prepara o ambiente para uso de SSH, GPG e Git dentro do container.
@@ -174,7 +174,7 @@ Executa uma série de comandos no container após ele ser criado:
 
 ---
 
-## 🔐 **Explicação completa do arquivo `setup-gpg.sh`**
+## 🔐 **`setup-gpg.sh`**
 
 O script `setup-gpg.sh` serve para configurar o **GPG** dentro do Dev Container, garantindo que você consiga:
 
@@ -249,7 +249,7 @@ gpg-connect-agent reloadagent /bye
 
 ---
 
-## ✅ **Resumo funcional do `setup-gpg.sh`**
+## ✅ **Resumo**
 
 - 🔧 Prepara corretamente o ambiente GPG no container.
 - 🔒 Garante segurança nas permissões.
