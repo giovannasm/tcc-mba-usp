@@ -261,7 +261,5 @@ Execute uma única vez após subir o container:
 - Isso ativa o cache da senha do GPG.
 - Você não precisará mais digitar sua senha GPG durante os commits (até destruir o container).
 
-🔧 Importante: O Dev Container **não ativa commits assinados automaticamente**. Você precisa ter configurado o Git para isso (via `git config`). O container apenas garante que o ambiente tenha acesso às suas chaves GPG e que o GPG funcione corretamente no terminal.
-
 ---
 
