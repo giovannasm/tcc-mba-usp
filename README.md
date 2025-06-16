@@ -38,7 +38,7 @@ Este repositório tem caráter educacional e demonstrativo. Seu objetivo é most
 - Ambiente mais padronizado entre desenvolvedores;
 - Melhoria na satisfação e produtividade da equipe.
 
-📚 Referências
+#### 📚 Referências
 
 Este trabalho foi desenvolvido como parte do TCC para o MBA em Engenharia de Software pela USP/Esalq em 2025.
 
@@ -48,6 +48,6 @@ Se quiser entender mais sobre os fundamentos teóricos que embasam este trabalho
 - Greiler, M., Storey, M., & Noda, A. (2022). An Actionable Framework for Understanding and Improving Developer Experience. IEEE Transactions on Software Engineering.
 - Razzaq, A. et al. (2024). A Systematic Literature Review on the Influence of Enhanced Developer Experience on Developers' Productivity. ACM Computing Surveys.
 
-✨ Contato
+#### ✨ Contato
 
 Caso tenha interesse em discutir sobre Developer Experience, Ruby on Rails, ou queira saber mais sobre este trabalho, me encontre no [LinkedIn](https://www.linkedin.com/in/giovannasm/) ou envie um email para: giovannasm@gmail.com
