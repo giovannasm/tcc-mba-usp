@@ -255,3 +255,33 @@ gpg-connect-agent reloadagent /bye
 - 🔒 Garante segurança nas permissões.
 - 🚀 Evita ter que digitar a senha GPG repetidamente.
 - 🔗 Permite fazer commits assinados, assinar tags e realizar outras operações que dependem do GPG de forma transparente dentro do container.
+
+---
+
+#### 🔐 Usando Commits Assinados no Dev Container
+
+✅ Pré-requisitos
+
+1. Ter uma chave GPG configurada no seu computador local.
+2. Git configurado para usar essa chave:
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu.email@exemplo.com"
+git config --global user.signingkey SEU_KEY_ID
+git config --global commit.gpgsign true
+```
+3. Adicionar sua chave pública no GitHub em: **Settings → SSH and GPG keys → New GPG key**.
+
+🚀 Dentro do Dev Container
+
+Execute uma única vez após subir o container:
+```bash
+./.devcontainer/setup-gpg.sh
+```
+- Isso ativa o cache da senha do GPG.
+- Você não precisará mais digitar sua senha GPG durante os commits (até destruir o container).
+
+🔧 Importante: O Dev Container **não ativa commits assinados automaticamente**. Você precisa ter configurado o Git para isso (via `git config`). O container apenas garante que o ambiente tenha acesso às suas chaves GPG e que o GPG funcione corretamente no terminal.
+
+---
+
