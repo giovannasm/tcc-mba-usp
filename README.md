@@ -21,6 +21,7 @@ Os resultados mostraram que a introdução dessas ferramentas teve impacto posit
 Este repositório simula um exemplo prático de como essas ferramentas foram configuradas no ambiente real. Os arquivos e scripts presentes aqui não são o projeto de produção da empresa, mas refletem a estrutura, os conceitos e as práticas aplicadas.
 
 - **`devcontainer.json`** → Define o ambiente Dev Container, instala dependências e extensões, e configura acesso a SSH e GPG.
+  
   🔸 Importante: o arquivo **não ativa automaticamente commits assinados**, mas fornece suporte para isso caso seu ambiente local já esteja configurado corretamente.
 
 - **`setup-gpg.sh`** → Script auxiliar para configuração do GPG dentro do container, garantindo que você possa assinar commits, desde que já tenha uma chave GPG configurada.
