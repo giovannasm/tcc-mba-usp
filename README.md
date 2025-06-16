@@ -20,50 +20,41 @@ Os resultados mostraram que a introdução dessas ferramentas teve impacto posit
 
 Este repositório simula um exemplo prático de como essas ferramentas foram configuradas no ambiente real. Os arquivos e scripts presentes aqui não são o projeto de produção da empresa, mas refletem a estrutura, os conceitos e as práticas aplicadas.
 
-Arquivos e pastas principais:
+- **`devcontainer.json`** → Define o ambiente Dev Container, instala dependências e extensões, e configura acesso a SSH e GPG.
+  🔸 Importante: o arquivo **não ativa automaticamente commits assinados**, mas fornece suporte para isso caso seu ambiente local já esteja configurado corretamente.
 
-`devcontainer.json`
+- **`setup-gpg.sh`** → Script auxiliar para configuração do GPG dentro do container, garantindo que você possa assinar commits, desde que já tenha uma chave GPG configurada.
 
-Arquivo de configuração do **Dev Container**, responsável por definir o ambiente de desenvolvimento containerizado.
+- **`Gemfile` (exemplo)** → Simula dependências comuns de um projeto Rails, incluindo gems voltadas para desenvolvimento, testes e suporte à DX.
 
-🔍 O que ele faz:
+---
 
-- Cria um ambiente padronizado para desenvolvimento em Ruby on Rails utilizando Docker.
-- Garante que todos os desenvolvedores utilizem as mesmas versões de Ruby, gems e dependências.
-- Configura o VSCode automaticamente com extensões essenciais:
-  - **Shopify.ruby-lsp** → Language Server para Ruby.
-  - **Fooo.ruby-spec-runner** → Execução de testes RSpec integrada ao editor.
-  - **GitLens** → Ferramenta para enriquecer a navegação e histórico Git.
-- Define comandos de teste (`bundle exec rspec --color`) e diretórios (`./spec`).
-- Expõe a porta 3000 (padrão do Rails).
-- Realiza a configuração automática de GPG, SSH e Git dentro do container, incluindo suporte para commits assinados.
+#### 🔐 Usando Commits Assinados no Dev Container
 
-🧠 Detalhes importantes do `devcontainer.json`:
+✅ Pré-requisitos
 
-- Faz bind dos seus arquivos locais de configuração (`.ssh`, `.gnupg`, `.gitconfig`) para dentro do container, permitindo que o ambiente conte com suas credenciais e configurações pessoais.
-- Inclui um comando `postCreateCommand` robusto que:
-  - Instala dependências adicionais no container.
-  - Configura SSH.
-  - Copia e ajusta permissões de chaves GPG.
-  - Habilita commit assinado automaticamente no Git dentro do container.
+1. Ter uma chave GPG configurada no seu computador local.
+2. Git configurado para usar essa chave:
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seu.email@exemplo.com"
+git config --global user.signingkey SEU_KEY_ID
+git config --global commit.gpgsign true
+```
+3. Adicionar sua chave pública no GitHub em: **Settings → SSH and GPG keys → New GPG key**.
 
-`setup-gpg.sh`
+🚀 Dentro do Dev Container
 
-Script auxiliar que complementa a configuração do GPG no container.
+Execute uma única vez após subir o container:
+```bash
+./.devcontainer/setup-gpg.sh
+```
+- Isso ativa o cache da senha do GPG.
+- Você não precisará mais digitar sua senha GPG durante os commits (até destruir o container).
 
-🔍 O que ele faz:
+🔧 Importante: O Dev Container **não ativa commits assinados automaticamente**. Você precisa ter configurado o Git para isso (via `git config`). O container apenas garante que o ambiente tenha acesso às suas chaves GPG e que o GPG funcione corretamente no terminal.
 
-- Ajusta as permissões da pasta `.gnupg` e de suas chaves, garantindo que o GPG funcione corretamente.
-- Configura o agente do GPG (`gpg-agent`) para utilizar o **pinentry-curses**, que permite interação no terminal para desbloqueio das chaves.
-- Define um cache de senha extremamente longo (10 anos), evitando que você precise digitar sua senha GPG repetidamente no container.
-- Exporta a variável `GPG_TTY`, necessária para que o GPG funcione corretamente no terminal.
-- Recarrega o agente GPG para aplicar todas as configurações.
-
-🚀 Resultado: Permite que você assine commits (`git commit -S`), tags e outras operações seguras diretamente no ambiente do Dev Container, exatamente como faria na sua máquina local.
-
-`Gemfile` (exemplo)
-
-Arquivo que demonstra as dependências Ruby necessárias para rodar um projeto típico Rails, incluindo gems para desenvolvimento, teste e suporte à DX proposta.
+---
 
 #### 🚀 Objetivo deste repositório
 
