@@ -115,9 +115,8 @@ Executa uma série de comandos no container após ele ser criado:
 - Ajusta permissões de segurança dessas pastas.
 - Configura o GPG para funcionar dentro do container:
   - Cache de senha muito longo.
-- Executa o script `setup-gpg.sh` para garantir a configuração final do GPG.
 
-> ⚠️ **Importante:** Esse processo **não ativa automaticamente a assinatura de commits.** É necessário que você já tenha sua chave GPG criada e configurada no Git com `commit.gpgsign true`.
+> ⚠️ **Importante:** Esse processo **não ativa automaticamente a assinatura de commits.** É necessário que você já tenha sua chave GPG criada e configurada no Git com `commit.gpgsign true`. Após isso, é necessário rodar o script `setup-gpg.sh` no terminal dentro do container.
 
 ---
 
